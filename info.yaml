@@ -23,7 +23,7 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0] : "a"
+  ui[0]: "a"
   ui[1]: "b"
   ui[2]: "c"
   ui[3]: "" # unused
@@ -34,7 +34,7 @@ pinout:
 
   # Outputs
   uo[0]: "sum"
-  uo[1]:"cout"
+  uo[1]: "cout"
   uo[2]: "" # unused
   uo[3]: "" # unused
   uo[4]: "" # unused
