@@ -1,9 +1,9 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Full adder
-  author:       ""      # J.Selvakumar
+  title:        "Full Adder"      # Full adder
+  author:       "J.Selvakumar"      # J.Selvakumar
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # It is a combinational logic Circuit that adds three one-bit binary number for addition
+  description:  "It is a combinational logic Circuit that adds three one-bit binary number for addition"      # It is a combinational logic Circuit that adds three one-bit binary number for addition
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -23,9 +23,9 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0] = "a" : //input a
-  ui[1]= "b" :  // input b
-  ui[2]= "c":  //input c
+  ui[0] = "a" : # input a
+  ui[1]= "b" :  # input b
+  ui[2]= "c":  # input c
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
@@ -33,8 +33,8 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]= "sum": //output sum
-  uo[1]= "cout": //output carry
+  uo[0]= "sum": # output sum
+  uo[1]= "cout": # output carry
   uo[2]: ""
   uo[3]: ""
   uo[4]: ""
