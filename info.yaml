@@ -26,21 +26,21 @@ pinout:
   ui[0] = "a"
   ui[1]= "b"
   ui[2]= "c"
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[3]: "" # unused
+  ui[4]: "" # unused
+  ui[5]: "" # unused
+  ui[6]: "" # unused
+  ui[7]: "" # unused
 
   # Outputs
   uo[0]= "sum": # output sum
   uo[1]= "cout": # output carry
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[2]: "" # unused
+  uo[3]: "" # unused
+  uo[4]: "" # unused
+  uo[5]: "" # unused
+  uo[6]: "" # unused
+  uo[7]: "" # unused
 
   # Bidirectional pins
   uio[0]: ""
