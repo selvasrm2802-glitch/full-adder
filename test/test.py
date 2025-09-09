@@ -1,16 +1,18 @@
-# SPDX-FileCopyrightText: © 2024 Tiny Tapeout
-# SPDX-License-Identifier: Apache-2.0
-
 import cocotb
 from cocotb.triggers import Timer
 
 @cocotb.test()
 async def test_full_adder(dut):
-    """Test Full Adder functionality"""
+    """Test Full Adder functionality using TinyTapeout interface"""
 
     dut._log.info("Starting Full Adder Test")
 
-    # Define test cases as tuples: (a, b, cin, expected_sum, expected_cout)
+    # Initialize control signals
+    dut.clk.value = 0
+    dut.rst_n.value = 1
+    dut.ena.value = 1
+    dut.uio_in.value = 0
+
     test_vectors = [
         (0, 0, 0, 0, 0),
         (0, 0, 1, 1, 0),
@@ -23,13 +25,16 @@ async def test_full_adder(dut):
     ]
 
     for a, b, cin, expected_sum, expected_cout in test_vectors:
-        dut.a.value = a
-        dut.b.value = b
-        dut.cin.value = cin
+        # Encode inputs into ui_in[0:2]
+        dut.ui_in.value = (a << 0) | (b << 1) | (cin << 2)
 
-        await Timer(1, units="ns")  # Small delay for propagation
+        await Timer(1, units="ns")
 
-        assert dut.sum.value == expected_sum, f"Sum mismatch: {a}+{b}+{cin} expected {expected_sum}, got {int(dut.sum.value)}"
-        assert dut.cout.value == expected_cout, f"Cout mismatch: {a}+{b}+{cin} expected {expected_cout}, got {int(dut.cout.value)}"
+        # Extract outputs from uo_out[0:1]
+        sum_val = (dut.uo_out.value >> 0) & 1
+        cout_val = (dut.uo_out.value >> 1) & 1
 
-        dut._log.info(f"Test Passed for a={a}, b={b}, cin={cin}")
+        assert sum_val == expected_sum, f"Sum mismatch: a={a}, b={b}, cin={cin}, expected {expected_sum}, got {sum_val}"
+        assert cout_val == expected_cout, f"Cout mismatch: a={a}, b={b}, cin={cin}, expected {expected_cout}, got {cout_val}"
+
+        dut._log.info(f"PASS: a={a}, b={b}, cin={cin} -> sum={sum_val}, cout={cout_val}")
