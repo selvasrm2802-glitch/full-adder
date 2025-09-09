@@ -23,9 +23,9 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0] = "a" : # input a
-  ui[1]= "b" :  # input b
-  ui[2]= "c":  # input c
+  ui[0] = "a"
+  ui[1]= "b"
+  ui[2]= "c"
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
